@@ -11,10 +11,10 @@ package Sem2BST;
  */
 class Address {
 
-    @Override
-    public String toString() {
-        return "Address{" + "street=" + street + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Address{" + "street=" + street + '}';
+//    }
   String street;
   Address(String st){
     street = st;

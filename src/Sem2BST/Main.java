@@ -18,17 +18,8 @@ public class Main {
         dict.put("Johannes", new Address("Lars Bjørnsstræde 7b"));
 dict.put("Gertrud", new Address("Lyngtoften 28"));
         dict.get("Asker");
-        System.out.println(dict.get("Niels"));
         System.out.println(dict.get("Asker"));
-        System.out.println(dict.get("Hans"));
-        System.out.println(dict.get("Johanne"));
-        System.out.println(dict.get("Johannes"));
-        System.out.println(dict.containsKey("Asker"));
-        System.out.println(dict.containsKey("Tumpe"));
-        System.out.println(dict.s);
-        System.out.println(dict.keys());
-        System.out.println(dict.values());
-        System.out.println(dict);
+        System.out.println(dict.keys2());
    
     }
 }

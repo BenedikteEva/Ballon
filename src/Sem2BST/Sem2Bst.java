@@ -11,11 +11,6 @@ import java.util.List;
 class Sem2BST {
 
     private Node[] internal;
-
-    public Sem2BST(Node[] internal) {
-        this.internal = new Node[s];
-    }
-    
     String key;
     Address value;
     Node root;
@@ -23,6 +18,7 @@ class Sem2BST {
     int s = 0;
     private ArrayList<String> allKeys = new ArrayList<>();
     private ArrayList<String> all = new ArrayList<>();
+    private ArrayList<Node> many = new ArrayList();
 
     public Sem2BST() {
 
@@ -48,6 +44,7 @@ class Sem2BST {
 
             insert(key, value, root);
             if (containsKey(key) == true) {
+
                 allKeys.add(node.key);
                 all.add(node.value.street);
             }
@@ -68,6 +65,7 @@ class Sem2BST {
             case -1:
                 if (node.left == null) {
                     node.left = new Node(key, value);
+                    many.add(node.left);
 
                 } else {
 
@@ -83,6 +81,7 @@ class Sem2BST {
             case 1:
                 if (node.right == null) {
                     node.right = new Node(key, value);
+                    many.add(node.right);
 
                 } else {
 
@@ -94,12 +93,12 @@ class Sem2BST {
 
     }
 
-    public String get(String key) {
+    public Address get(String key) {
 
         return find(key);
     }
 
-    public String find(String key) {
+    public Address find(String key) {
 
         node = root;
         while (node != null) {
@@ -115,7 +114,7 @@ class Sem2BST {
             }
             if (findYourPlace == 0) {
 
-                return node.value.street;
+                return node.value;
             }
             if (node == null) {
                 return null;
@@ -126,21 +125,33 @@ class Sem2BST {
         return null;
     }
 
-//    public List<String> keys() {
-//        if (s == 0) {
-//            return null;
-//        } else {
-//
-//            Collections.sort(allKeys);
-//            for (int i = 0; i < allKeys.size(); i++) {
-//                return allKeys;
-//            }
-//        }
-//        return null;
-//    }
-    
-    public List<Node>Keys(){
-        
+    public List<String> keys() {
+        if (s == 0) {
+            return null;
+        } else {
+
+            Collections.sort(allKeys);
+            for (int i = 0; i < allKeys.size(); i++) {
+                return allKeys;
+            }
+        }
+        return null;
+    }
+
+    public List<Node> keys2() {
+
+        return many;
+
+    }
+
+    public List<Address> values2() {
+        ArrayList<Address> all = new ArrayList();
+        for (int i = 0; i < internal.length; i++) {
+            if (internal[i] != null) {
+                all.add(internal[i].value);
+            }
+        }
+        return all;
     }
 
     public List<String> values() {
@@ -149,21 +160,18 @@ class Sem2BST {
             return null;
         } else {
 
-            for (int i = 0; i<all.size();i++) {
-               sortByKey();
+            for (int i = 0; i < all.size(); i++) {
+                sortByKey();
                 return all;
             }
         }
         return null;
 
     }
-    public List<Node> sortByKey(){
-          for (int i = 0; i<all.size();i++) {
-      
-        
-      
-        
-    }
+
+    public List<Node> sortByKey() {
+
         return null;
 
-}}
+    }
+}
